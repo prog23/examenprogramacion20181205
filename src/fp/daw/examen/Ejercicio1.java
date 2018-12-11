@@ -15,30 +15,13 @@ public class Ejercicio1 {
 	 * uso de variables booleanas.
 	 */
 	
-	public static boolean contiene (int cadena) {
+	public static boolean contiene (String [] vector, String cadena) {		
 			
-		Scanner sc= new Scanner (System.in);
-						
-			char [] vector = {10, 11, 40, 50};
-			
-			System.out.println("Introduce un numero");
-			cadena = sc.nextInt();
-			
-			for (int i = 0; i >= vector.length; i++) {
-				if (cadena == vector[i]) {
-					System.out.println("Son iguales");
-					return true;
-				}else {
-					System.out.println("error");
-					return false;
-				}
-			}
-			return false;
-			
-			
-			
-			
-			
+	int i = 0;
+	while (i < vector.length && !cadena.equals(vector[i])) 
+		
+		i++;
+	return i < vector.length;
 				
 	}
 	
@@ -51,7 +34,13 @@ public class Ejercicio1 {
 	
 	public static void main(String[] args) {
 		
-		contiene(0);
+		String [] vector = {"C1", "C2", "C3", "C4", "C5"};
+		System.out.println(contiene(vector, "hola"));
+		System.out.println(contiene(vector, "C1"));
+		System.out.println(contiene(vector, "C2"));
+		System.out.println(contiene(vector, "C3"));
+		System.out.println(contiene(vector, "C4"));
+		System.out.println(contiene(vector, "C5"));
 
 	}
 

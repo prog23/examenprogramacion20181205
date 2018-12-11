@@ -1,5 +1,6 @@
 package fp.daw.examen;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -15,43 +16,14 @@ public class Ejercicio4 {
 	 * Finalmente retornará el array.
 	 */
 	
-	public static void arrayAleatorioOrdenado(int tam, int num) {
-		 Random numAzar = new Random();
-	        Scanner sc = new Scanner(System.in);	        
-	     
-	        System.out.println("Ingrese Tamaño");
-	        tam=sc.nextInt();
-	        if (tam < 975 || tam > 13579) {
-	        int a[]=new int[tam];
-	         for(int i=0; i<a.length; i++){ 
-	            num= (int)(numAzar.nextDouble()*100);
-	            a[i]=num;
-	         }
-	        
-	        System.out.println("array A desordenado: "); 
-	        for(int i=0; i<a.length; i++) 
-	            System.out.println(a[i]);  
-	
-	        int aux; 
-	        for(int i=1; i<=a.length; i++) { 
-	            for(int j=0; j<a.length-i; j++) { 
-	                if( a[j] > a[j+1] ) { 
-	                    aux   = a[j]; 
-	                    a[j]  = a[j+1]; 
-	                    a[j+1]= aux; 
-	                }       
-	               
-	            
-	        
-	        }	        
-	           
-	        }
-	        System.out.println("\nArray A ordenado: "); 
-            for(int i=0; i<a.length; i++) 
-                System.out.println(a[i]); 
-	        }
+	public static int [] arrayAleatorioOrdenado(int n) {
+		int [] vector = new int[n];
+		Random r = new Random();
+		for (int i = 0; i < n; i++)
+			vector[i] = r.nextInt(13579 - 975 + 1) + 975;
+		Arrays.sort(vector);
+		return vector;
 	}
-	        
 	/*
 	 * 0,25 puntos
 	 * 
@@ -60,7 +32,7 @@ public class Ejercicio4 {
 	 */
 	
 	public static void main(String[] args) {
-		arrayAleatorioOrdenado(0, 0);
+		Ejercicio3.mostrarVector(arrayAleatorioOrdenado(10));
 		
 	}
 

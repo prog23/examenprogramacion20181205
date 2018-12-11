@@ -17,42 +17,21 @@ public class Ejercicio6 {
 	 */
 		
 	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner (System.in);
-		int n;
-		
-		do {
-			System.out.println("Tamaño del vector (entre 100 y 500): ");
-			n = sc.nextInt();
-			if (n < 100 || n > 500)
-				System.out.println("Tamaño incorrecto, tiene que estar comprendido entre 100 y 500");
-		}while (n<100 || n>500);
-		
-		int [] vector = new int[n];
-		Random r = new Random();
-	for (int i=0; i<n; i++) {
-		int valor;		
-		do {
-		valor = r.nextInt(2000000) - 999999;
-		}while (repetido(vector, valor, i - 1));
-		vector [i] = valor;
-	}	
-	for (int i=0; i<n; i++) {		
-		System.out.print(vector [i] + "  ");
-	}
-	System.out.println();
-	}
 	
-
-	static boolean repetido (int [] vector, int valor, int p) {
-		for (int i=0; i<=p; i++) {
-			if (vector[i]==valor) {
-		return true;
-			}
-		}
-		return false;
+		Random r = new Random();
+		int n = r.nextInt(401) + 100;
+		int [] vector = new int[n];
 		
-	}
+		for (int i = 0; i < n; i++)
+			vector[i] = r.nextInt(1000001);
+		int min = Integer.MAX_VALUE;
+		
+		for (int i = 0; i < n; i++) {
+			int dif = vector[i] - vector[i - 1];
+		if (dif < min)
+			min = dif;
+		}
+		System.out.println("Diferencia minima: " + min);
 
 }
-
+}
